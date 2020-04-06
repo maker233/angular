@@ -116,7 +116,7 @@
             }
         }
     },
-    "defaultProject": "ngx-admin-demo",
+    "defaultProject": "practice-app",
     "schematics": {
         "@schematics/angular:component": {
             "prefix": "ngx",

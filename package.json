@@ -1,10 +1,10 @@
 {
-    "name": "ngx-admin",
-    "version": "5.0.0",
+    "name": "practice-app",
+    "version": "1.0.0",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/akveo/ngx-admin.git"
+        "url": "git+https://yvyn@bitbucket.org/robert_golf/practice-app.git"
     },
     "scripts": {
         "ng": "ng",
