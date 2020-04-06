@@ -1,0 +1,7 @@
+/node_modules/**
+/dist/**
+/src/environments/**
+/src/polyfills.ts
+package.json
+package-lock.json
+yarn.lock
