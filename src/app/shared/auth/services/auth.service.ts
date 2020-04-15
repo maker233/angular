@@ -1,30 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-    // Atributo para saber si esta logueado
-    private logged: boolean;
-
-    constructor(private afauth: AngularFireAuth) {
-        this.logged = false;
-        // Se subscribe al servicio para notificar cuando está
-        // logeado el usuario y cuando no
-        this.afauth.authState.subscribe((user: any) => {
-            if (user) {
-                this.logged = true;
-            } else {
-                this.logged = false;
-            }
-        });
-    }
-
-    /**
-     * Setea el valor de isLogged
-     */
-    set isLogged(value: boolean) {
-        this.logged = value;
-    }
+    constructor(private afauth: AngularFireAuth, private router: Router) {}
 
     /**
      * realiza login
@@ -48,17 +29,10 @@ export class AuthService {
      */
     logout(): void {
         this.afauth.auth.signOut();
-        this.logged = false;
+        this.router.navigate(['/login']);
     }
 
-    /**
-     * Indica si esta o no logueado
-     */
-    isAuthenticated(): boolean {
-        return this.logged;
-    }
-
-    getAfauth(): AngularFireAuth {
-        return this.afauth;
+    getUser(): Promise<any> {
+        return this.afauth.authState.pipe(first()).toPromise();
     }
 }

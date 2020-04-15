@@ -45,8 +45,7 @@ export class LoginComponent implements OnInit {
                 (success) => {
                     if (success) {
                         // Indicamos que estamos logueados
-                        this.auth.isLogged = true;
-                        this.router.navigate(['home']);
+                        this.router.navigate(['/']);
                     }
                 },
                 (error) => {
