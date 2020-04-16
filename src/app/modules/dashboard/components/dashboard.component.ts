@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MENU_ITEMS } from './dashboard-menu';
 import { AuthService } from '../../../shared/auth/services/auth.service';
 
 @Component({
@@ -7,6 +8,7 @@ import { AuthService } from '../../../shared/auth/services/auth.service';
     styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+    menu = MENU_ITEMS;
     constructor(private authService: AuthService) {}
 
     logout() {
