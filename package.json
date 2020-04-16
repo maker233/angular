@@ -20,7 +20,7 @@
         "stylelint-check": "stylelint-config-prettier-check",
         "tslint-check": "tslint-config-prettier-check ./tslint.json",
         "format:fix": "pretty-quick --staged",
-        "fix:all": "npm run format:fix && npm run styles:fix",
+        "fix:all": "npm run format:fix",
         "precommit": "run-s fix:all lint:dev test",
         "prepush": ""
     },
@@ -44,7 +44,7 @@
         "@swimlane/ngx-charts": "^13.0.2",
         "angular2-chartjs": "0.4.1",
         "angularfire2": "^5.4.2",
-        "bootstrap": "4.3.1",
+        "bootstrap": "^4.3.1",
         "chart.js": "2.7.1",
         "ckeditor": "4.7.3",
         "classlist.js": "1.1.20150312",

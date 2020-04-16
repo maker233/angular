@@ -1,73 +1,83 @@
-<div class="row mt-4 mb-4" id="login">
-    <div class="col-12">
-        <!-- Si hay un error lo muestra -->
-        <div class="row" *ngIf="showLoginError">
+<div class="row fadeInDown">
+    <div class="col-6 offset-3 mt-4 mb-4">
+        <div class="row" id="login">
             <div class="col-12">
-                <div class="alert alert-danger" role="alert">
-                    <!-- <strong>{{'label.login.error' | translate}}</strong> -->
-                    Usuario/Contraseña incorrecta
+                <!-- Si hay un error lo muestra -->
+                <div class="row" *ngIf="showLoginError">
+                    <div class="col-12">
+                        <div class="alert alert-danger" role="alert">
+                            <!-- <strong>{{'label.login.error' | translate}}</strong> -->
+                            Usuario/Contraseña incorrecta
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="wrapper fadeInDown">
-            <div id="formContent">
-                <!-- Login Form -->
-                <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
-                    <input
-                        type="text"
-                        placeholder="E-mail"
-                        id="emailLogin"
-                        formControlName="email"
-                        class="form-control fadeIn second"
-                        [ngClass]="{
-                            'is-invalid': submitted && f.email.errors
-                        }"
-                    />
-                    <div
-                        *ngIf="submitted && f.email.errors"
-                        class="invalid-feedback"
-                    >
-                        <div *ngIf="f.email.errors.required"
-                            >El campo e-mail es obligatorio</div
+                <div class="wrapper">
+                    <div id="formContent">
+                        <!-- Login Form -->
+                        <form
+                            class="text-center"
+                            [formGroup]="loginForm"
+                            (ngSubmit)="checkLogin()"
                         >
-                        <div *ngIf="f.email.errors.email"
-                            >Debe tener un formato válido</div
-                        >
+                            <input
+                                type="text"
+                                placeholder="E-mail"
+                                id="emailLogin"
+                                formControlName="email"
+                                class="form-control fadeIn second"
+                                [ngClass]="{
+                                    'is-invalid': submitted && f.email.errors
+                                }"
+                            />
+                            <div
+                                *ngIf="submitted && f.email.errors"
+                                class="invalid-feedback"
+                            >
+                                <div *ngIf="f.email.errors.required"
+                                    >El campo e-mail es obligatorio</div
+                                >
+                                <div *ngIf="f.email.errors.email"
+                                    >Debe tener un formato válido</div
+                                >
+                            </div>
+
+                            <input
+                                type="password"
+                                placeholder="pass"
+                                formControlName="pass"
+                                class="form-control fadeIn second"
+                                [ngClass]="{
+                                    'is-invalid': submitted && f.pass.errors
+                                }"
+                            />
+                            <div
+                                *ngIf="submitted && f.email.errors"
+                                class="invalid-feedback"
+                            >
+                                <div *ngIf="f.pass.errors.required"
+                                    >El campo password es obligatorio</div
+                                >
+                                <div *ngIf="f.pass.errors.email"
+                                    >Debe tener un formato válido</div
+                                >
+                            </div>
+
+                            <div class="text-center" id="botonLogin">
+                                <button
+                                    type="submit"
+                                    [disabled]="loginForm.invalid"
+                                    class="btn btn-primary mr-1 fadeIn fourth"
+                                    >Login</button
+                                >
+                            </div>
+                        </form>
+
+                        <!-- Remind Passowrd -->
+                        <div id="formFooter">
+                            <a href="#">Forgot Password?</a>
+                        </div>
                     </div>
-
-                    <input
-                        type="password"
-                        placeholder="pass"
-                        formControlName="pass"
-                        class="form-control fadeIn second"
-                        [ngClass]="{ 'is-invalid': submitted && f.pass.errors }"
-                    />
-                    <div
-                        *ngIf="submitted && f.email.errors"
-                        class="invalid-feedback"
-                    >
-                        <div *ngIf="f.pass.errors.required"
-                            >El campo password es obligatorio</div
-                        >
-                        <div *ngIf="f.pass.errors.email"
-                            >Debe tener un formato válido</div
-                        >
-                    </div>
-
-                    <div class="text-center" id="botonLogin">
-                        <button
-                            type="submit"
-                            [disabled]="loginForm.invalid"
-                            class="btn btn-primary mr-1 fadeIn fourth"
-                            >Login</button
-                        >
-                    </div>
-                </form>
-
-                <!-- Remind Passowrd -->
-                <div id="formFooter">
-                    <a class="underlineHover" href="#">Forgot Password?</a>
                 </div>
             </div>
         </div>
