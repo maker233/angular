@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -27,8 +27,8 @@ export class AuthService {
     /**
      * Nos desloguea de la aplicacion
      */
-    logout(): void {
-        this.afauth.auth.signOut();
+    async logout() {
+        await this.afauth.auth.signOut();
         this.router.navigate(['/login']);
     }
 

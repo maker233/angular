@@ -25,4 +25,11 @@ export class AuthServiceMock {
     isAuthenticated(): boolean {
         return true;
     }
+
+    /**
+     * logout
+     */
+    logout(): void {
+        // Simula el logout
+    }
 }

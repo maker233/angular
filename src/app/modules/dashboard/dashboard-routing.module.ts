@@ -15,6 +15,13 @@ const routes: Routes = [
                     import('../home/home.module').then((m) => m.HomeModule),
             },
             {
+                path: 'logout',
+                loadChildren: () =>
+                    import('../logout/logout.module').then(
+                        (m) => m.LogoutModule
+                    ),
+            },
+            {
                 path: '',
                 redirectTo: 'home',
                 pathMatch: 'full',
