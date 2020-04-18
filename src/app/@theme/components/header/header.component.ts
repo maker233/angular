@@ -18,10 +18,10 @@ import { Subject } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
     private destroy$: Subject<void> = new Subject<void>();
-    userPictureOnly: boolean = false;
+    userPictureOnly = false;
     user: any;
 
-    themes = [
+    /*themes = [
         {
             value: 'default',
             name: 'Light',
@@ -38,11 +38,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
             value: 'corporate',
             name: 'Corporate',
         },
-    ];
+    ];*/
 
     currentTheme = 'default';
 
-    userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
+    userMenu = [
+        { title: 'Perfil' },
+        { title: 'Cerrar Sesión', link: '/dashboard/logout' },
+    ];
 
     constructor(
         private sidebarService: NbSidebarService,

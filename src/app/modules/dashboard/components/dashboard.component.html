@@ -1,3 +1,5 @@
-<p>dashboard works!</p>
-
+<ngx-one-column-layout>
+    <nb-menu [items]="menu"></nb-menu>
+    <router-outlet></router-outlet>
+</ngx-one-column-layout>
 <button (click)="logout()">Cerrar sesión</button>
