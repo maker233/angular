@@ -4,8 +4,8 @@ import { LogoutComponent } from './logout.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LogoutRoutingModule } from '../logout-routing.module';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../../shared/auth/services/auth.service';
-import { AuthServiceMock } from '../../../../../@mocks/AuthServiceMock';
+import { AuthService } from '../../../../shared/auth/services/auth.service';
+import { AuthServiceMock } from '../../../../../../@mocks/AuthServiceMock';
 
 describe('LogoutComponent', () => {
     let component: LogoutComponent;

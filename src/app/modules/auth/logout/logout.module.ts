@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LogoutRoutingModule } from './logout-routing.module';
 import { LogoutComponent } from './components/logout.component';
-import { AuthModule } from '../../shared/auth/auth.module';
+import { AuthModule } from '../../../shared/auth/auth.module';
 
 @NgModule({
     declarations: [LogoutComponent],

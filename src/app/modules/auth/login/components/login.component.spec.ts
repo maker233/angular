@@ -4,8 +4,8 @@ import { LoginComponent } from './login.component';
 import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from '../login-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from '../../../shared/auth/services/auth.service';
-import { AuthServiceMock } from '../../../../../@mocks/AuthServiceMock';
+import { AuthService } from '../../../../shared/auth/services/auth.service';
+import { AuthServiceMock } from '../../../../../../@mocks/AuthServiceMock';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LoginComponent', () => {
