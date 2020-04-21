@@ -8,6 +8,7 @@
                     status="primary"
                     outline
                     [disabled]="!examComponentSelected"
+                    (click)="addComponent()"
                     >Añadir</button
                 >
             </div>
@@ -16,8 +17,12 @@
             <li
                 class="col-12"
                 *ngFor="let component of examComponents"
-                [ngClass]="{ selected: component.id === examComponentSelected }"
-                (click)="selected(component.id)"
+                [ngClass]="{
+                    selected:
+                        examComponentSelected &&
+                        component.id === examComponentSelected.id
+                }"
+                (click)="selected(component)"
             >
                 {{ component.name }}
             </li>

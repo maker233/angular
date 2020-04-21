@@ -1,6 +1,8 @@
 <div class="row" style="height: 100%;">
     <div class="col-9 new-exam-content"> </div>
     <div class="col-3 new-exam-components-content">
-        <ngx-new-exam-components></ngx-new-exam-components>
+        <ngx-new-exam-components
+            (resExamComponent)="addComponent($event)"
+        ></ngx-new-exam-components>
     </div>
 </div>
