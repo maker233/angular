@@ -1,21 +1,25 @@
 <div class="row">
     <div class="col-12" style="text-align: center;">
         <h2>Componentes</h2>
-        <ul class="row">
-            <li class="col-12">
-                Titulo
-            </li>
-            <li class="col-12">
-                Introducir texto
-            </li>
-            <li class="col-12">
-                Campo de texto para alumno
-            </li>
-            <li class="col-12">
-                Respuestas radio
-            </li>
-            <li class="col-12">
-                Respuestas check
+        <div class="row">
+            <div class="col-12">
+                <button
+                    nbButton
+                    status="primary"
+                    outline
+                    [disabled]="!examComponentSelected"
+                    >Añadir</button
+                >
+            </div>
+        </div>
+        <ul class="row" *ngIf="examComponents">
+            <li
+                class="col-12"
+                *ngFor="let component of examComponents"
+                [ngClass]="{ selected: component.id === examComponentSelected }"
+                (click)="selected(component.id)"
+            >
+                {{ component.name }}
             </li>
         </ul>
     </div>
