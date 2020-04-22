@@ -4,6 +4,7 @@ import { NewExamComponent } from './new-exam.component';
 import { CommonModule } from '@angular/common';
 import { NewExamRoutingModule } from '../new-exam-routing.module';
 import { NewExamComponentsComponent } from './new-exam-components/new-exam-components.component';
+import { FormsModule } from '@angular/forms';
 
 describe('NewExamComponent', () => {
     let component: NewExamComponent;
@@ -12,7 +13,7 @@ describe('NewExamComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [NewExamComponent, NewExamComponentsComponent],
-            imports: [CommonModule, NewExamRoutingModule],
+            imports: [CommonModule, NewExamRoutingModule, FormsModule],
         }).compileComponents();
     }));
 

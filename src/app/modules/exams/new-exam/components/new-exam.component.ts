@@ -7,7 +7,13 @@ import { ExamComponentModel } from '../resources/exam-component.model';
     styleUrls: ['./new-exam.component.scss'],
 })
 export class NewExamComponent {
+    title: string;
+
     addComponent(component: ExamComponentModel) {
         // TODO Crear funcionalidad para componentes dinamicos
+    }
+
+    saveExam() {
+        // TODO implementations
     }
 }
