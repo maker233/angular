@@ -7,4 +7,9 @@ ul {
         margin: 2px;
         cursor: pointer;
     }
+
+    li.selected {
+        background-color: #36f;
+        color: white;
+    }
 }
