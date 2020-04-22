@@ -6,9 +6,15 @@ import { NewExamComponent } from './components/new-exam.component';
 import { NewExamComponentsComponent } from './components/new-exam-components/new-exam-components.component';
 import { NbButtonModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { NewExamComponentsTextareaComponent } from './components/new-exam-components-textarea/new-exam-components-textarea.component';
 
 @NgModule({
-    declarations: [NewExamComponent, NewExamComponentsComponent],
+    declarations: [
+        NewExamComponent,
+        NewExamComponentsComponent,
+        NewExamComponentsTextareaComponent,
+    ],
     imports: [CommonModule, NewExamRoutingModule, NbButtonModule, FormsModule],
+    entryComponents: [NewExamComponentsTextareaComponent],
 })
 export class NewExamModule {}

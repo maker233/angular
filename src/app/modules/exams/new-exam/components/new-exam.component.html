@@ -11,6 +11,11 @@
                 />
             </div>
         </div>
+
+        <ul>
+            <ng-template dynamic-component></ng-template>
+        </ul>
+
         <div class="row">
             <div class="col-12 text-center">
                 <button
@@ -20,6 +25,14 @@
                     [disabled]="!title"
                     (click)="saveExam()"
                     >Guardar</button
+                >
+                <button
+                    nbButton
+                    status="primary"
+                    outline
+                    [disabled]="!title"
+                    (click)="removeComponent()"
+                    >Borrar</button
                 >
             </div>
         </div>

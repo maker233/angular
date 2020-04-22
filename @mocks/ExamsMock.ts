@@ -5,33 +5,27 @@ export class ExamsMock {
         return [
             {
                 id: 1,
-                name: 'Titulo',
+                name: 'Introducir Texto',
                 order: 1,
-                component: 'titulo',
+                component: 'textArea',
             },
             {
                 id: 2,
-                name: 'Introducir Texto',
+                name: 'Campo texto para alumno',
                 order: 2,
-                component: 'titulo',
+                component: 'input',
             },
             {
                 id: 3,
-                name: 'Campo texto para alumno',
+                name: 'Respuestas radio',
                 order: 3,
-                component: 'titulo',
+                component: 'radio',
             },
             {
                 id: 4,
-                name: 'Respuestas radio',
-                order: 4,
-                component: 'titulo',
-            },
-            {
-                id: 5,
                 name: 'Respuestas check',
-                order: 5,
-                component: 'titulo',
+                order: 4,
+                component: 'check',
             },
         ];
     }
