@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewExamComponentsTextareaComponent } from './new-exam-components-textarea.component';
+import { CommonModule } from '@angular/common';
+import { NewExamRoutingModule } from '../../new-exam-routing.module';
+import { FormsModule } from '@angular/forms';
+import { NbInputModule, NbFocusMonitor } from '@nebular/theme';
+import { NewExamComponent } from '../new-exam.component';
+import { NewExamComponentsComponent } from '../new-exam-components/new-exam-components.component';
 
 describe('NewExamComponentsTextareaComponent', () => {
     let component: NewExamComponentsTextareaComponent;
@@ -8,7 +14,18 @@ describe('NewExamComponentsTextareaComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [NewExamComponentsTextareaComponent],
+            declarations: [
+                NewExamComponent,
+                NewExamComponentsComponent,
+                NewExamComponentsTextareaComponent,
+            ],
+            imports: [
+                CommonModule,
+                NewExamRoutingModule,
+                FormsModule,
+                NbInputModule,
+            ],
+            providers: [NbFocusMonitor],
         }).compileComponents();
     }));
 

@@ -1,10 +1,4 @@
-import {
-    Component,
-    OnInit,
-    Output,
-    EventEmitter,
-    OnDestroy,
-} from '@angular/core';
+import { Component, OnInit, EventEmitter, OnDestroy } from '@angular/core';
 import { DynamicComponent } from '../../resources/dynamic-component.interface';
 
 @Component({
@@ -14,12 +8,17 @@ import { DynamicComponent } from '../../resources/dynamic-component.interface';
 })
 export class NewExamComponentsTextareaComponent
     implements OnInit, OnDestroy, DynamicComponent {
-    @Output() resComponent = new EventEmitter();
-
+    resComponent: any;
     text: string;
-    data: any;
+
+    aceptado: boolean;
+
+    constructor() {
+        this.resComponent = new EventEmitter();
+    }
 
     ngOnInit(): void {
+        this.aceptado = false;
         this.resComponent.emit({ create: true });
     }
 
@@ -28,6 +27,11 @@ export class NewExamComponentsTextareaComponent
     }
 
     save(): void {
+        this.aceptado = true;
         this.resComponent.emit({ save: this.text });
+    }
+
+    modify(): void {
+        this.aceptado = false;
     }
 }

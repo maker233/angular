@@ -1,3 +1,5 @@
+import { EventEmitter } from 'events';
+
 export interface DynamicComponent {
-    data: any;
+    resComponent: EventEmitter;
 }

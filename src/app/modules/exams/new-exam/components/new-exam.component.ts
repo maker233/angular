@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { ExamComponentModel } from '../resources/exam-component.model';
 import { NewExamComponentsTextareaComponent } from './new-exam-components-textarea/new-exam-components-textarea.component';
-import { DynamicComponent } from '../resources/dynamic-component.interface';
 
 @Component({
     selector: 'ngx-new-exam',
@@ -34,7 +33,9 @@ export class NewExamComponent {
             componentFactory
         );
         this.componenteUno = componentRef;
-        (componentRef.instance as DynamicComponent).data = null;
+        componentRef.instance.resComponent.subscribe((event) =>
+            this.resComponents(event)
+        );
         componentRef.location.nativeElement.setAttribute('class', 'fullWidth');
     }
 
