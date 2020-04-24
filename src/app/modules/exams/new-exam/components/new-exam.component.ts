@@ -19,6 +19,8 @@ export class NewExamComponent {
     @ViewChild('components', { read: ViewContainerRef })
     dynamicComponent: ViewContainerRef;
 
+    componenteUno: any;
+
     constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
     addComponent(component: ExamComponentModel) {
@@ -31,12 +33,13 @@ export class NewExamComponent {
         const componentRef = this.dynamicComponent.createComponent(
             componentFactory
         );
+        this.componenteUno = componentRef;
         (componentRef.instance as DynamicComponent).data = null;
         componentRef.location.nativeElement.setAttribute('class', 'fullWidth');
     }
 
     removeComponent() {
-        // Eliminar componentes
+        this.componenteUno.destroy();
     }
 
     saveExam() {
