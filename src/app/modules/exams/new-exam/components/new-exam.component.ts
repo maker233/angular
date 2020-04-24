@@ -1,6 +1,10 @@
-import { Component, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import {
+    Component,
+    ViewChild,
+    ComponentFactoryResolver,
+    ViewContainerRef,
+} from '@angular/core';
 import { ExamComponentModel } from '../resources/exam-component.model';
-import { DynamicComponentDirective } from '../../../../shared/directives/dynamicComponent.directive';
 import { NewExamComponentsTextareaComponent } from './new-exam-components-textarea/new-exam-components-textarea.component';
 import { DynamicComponent } from '../resources/dynamic-component.interface';
 
@@ -12,8 +16,8 @@ import { DynamicComponent } from '../resources/dynamic-component.interface';
 export class NewExamComponent {
     title: string;
 
-    @ViewChild(DynamicComponentDirective, { static: true })
-    dynamicComponent: DynamicComponentDirective;
+    @ViewChild('components', { read: ViewContainerRef })
+    dynamicComponent: ViewContainerRef;
 
     constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
@@ -24,10 +28,11 @@ export class NewExamComponent {
             NewExamComponentsTextareaComponent
         );
 
-        const viewContainerRef = this.dynamicComponent.viewContainerRef;
-
-        const componentRef = viewContainerRef.createComponent(componentFactory);
+        const componentRef = this.dynamicComponent.createComponent(
+            componentFactory
+        );
         (componentRef.instance as DynamicComponent).data = null;
+        componentRef.location.nativeElement.setAttribute('class', 'fullWidth');
     }
 
     removeComponent() {

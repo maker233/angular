@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NewExamRoutingModule } from './new-exam-routing.module';
 import { NewExamComponent } from './components/new-exam.component';
 import { NewExamComponentsComponent } from './components/new-exam-components/new-exam-components.component';
-import { NbButtonModule } from '@nebular/theme';
+import { NbButtonModule, NbInputModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { NewExamComponentsTextareaComponent } from './components/new-exam-components-textarea/new-exam-components-textarea.component';
 
@@ -14,7 +14,13 @@ import { NewExamComponentsTextareaComponent } from './components/new-exam-compon
         NewExamComponentsComponent,
         NewExamComponentsTextareaComponent,
     ],
-    imports: [CommonModule, NewExamRoutingModule, NbButtonModule, FormsModule],
+    imports: [
+        CommonModule,
+        NewExamRoutingModule,
+        NbButtonModule,
+        FormsModule,
+        NbInputModule,
+    ],
     entryComponents: [NewExamComponentsTextareaComponent],
 })
 export class NewExamModule {}
