@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { DynamicComponent } from '../../resources/dynamic-component.interface';
 
 @Component({
@@ -7,9 +7,10 @@ import { DynamicComponent } from '../../resources/dynamic-component.interface';
     styleUrls: ['./new-exam-components-textarea.component.scss'],
 })
 export class NewExamComponentsTextareaComponent
-    implements OnInit, OnDestroy, DynamicComponent {
+    implements OnInit, DynamicComponent {
     resComponent: any;
     text: string;
+    id: number;
 
     aceptado: boolean;
 
@@ -19,16 +20,14 @@ export class NewExamComponentsTextareaComponent
 
     ngOnInit(): void {
         this.aceptado = false;
-        this.resComponent.emit({ create: true });
-    }
-
-    ngOnDestroy(): void {
-        this.resComponent.emit({ destroy: true });
     }
 
     save(): void {
         this.aceptado = true;
-        this.resComponent.emit({ save: this.text });
+    }
+
+    remove() {
+        this.resComponent.emit({ destroy: true, id: this.id });
     }
 
     modify(): void {

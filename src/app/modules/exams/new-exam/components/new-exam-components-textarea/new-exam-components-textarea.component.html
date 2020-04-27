@@ -15,12 +15,21 @@
     <div class="row botonera">
         <div class="col-10 offset-1">
             <button
+                class="margin-right"
                 nbButton
                 status="primary"
                 outline
                 [hidden]="aceptado"
                 (click)="save()"
                 >Aceptar</button
+            >
+            <button
+                nbButton
+                status="primary"
+                outline
+                [hidden]="aceptado"
+                (click)="remove()"
+                >Borrar</button
             >
             <button
                 nbButton
