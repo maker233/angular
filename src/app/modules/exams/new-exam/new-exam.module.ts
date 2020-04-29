@@ -7,12 +7,14 @@ import { NewExamComponentsComponent } from './components/new-exam-components/new
 import { NbButtonModule, NbInputModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { NewExamComponentsTextareaComponent } from './components/new-exam-components-textarea/new-exam-components-textarea.component';
+import { NewExamComponentsManagerComponent } from './components/new-exam-components-manager/new-exam-components-manager.component';
 
 @NgModule({
     declarations: [
         NewExamComponent,
         NewExamComponentsComponent,
         NewExamComponentsTextareaComponent,
+        NewExamComponentsManagerComponent,
     ],
     imports: [
         CommonModule,

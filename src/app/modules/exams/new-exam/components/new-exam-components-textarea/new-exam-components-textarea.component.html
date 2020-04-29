@@ -1,44 +1,9 @@
-<li class="fullWidth">
-    <div class="row">
-        <div class="col-10 offset-1">
-            <textarea
-                rows="5"
-                nbInput
-                fullWidth
-                shape="round"
-                [(ngModel)]="text"
-                placeholder="Introduce el texto"
-                [disabled]="aceptado"
-            ></textarea>
-        </div>
-    </div>
-    <div class="row botonera">
-        <div class="col-10 offset-1">
-            <button
-                class="margin-right"
-                nbButton
-                status="primary"
-                outline
-                [hidden]="aceptado"
-                (click)="save()"
-                >Aceptar</button
-            >
-            <button
-                nbButton
-                status="primary"
-                outline
-                [hidden]="aceptado"
-                (click)="remove()"
-                >Borrar</button
-            >
-            <button
-                nbButton
-                status="primary"
-                outline
-                [hidden]="!aceptado"
-                (click)="modify()"
-                >Modificar</button
-            >
-        </div>
-    </div>
-</li>
+<textarea
+    rows="5"
+    nbInput
+    fullWidth
+    shape="round"
+    [(ngModel)]="text"
+    placeholder="Introduce el texto"
+    [disabled]="aceptado"
+></textarea>

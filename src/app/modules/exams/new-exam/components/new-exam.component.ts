@@ -7,9 +7,9 @@ import {
 } from '@angular/core';
 import { ExamComponentModel } from '../resources/exam-component.model';
 import { DynamicComponentModel } from '../resources/dynamic-component.model';
-import { NewExamComponentsTextareaComponent } from './new-exam-components-textarea/new-exam-components-textarea.component';
 import { ExamModel } from '../../../../shared/resources/exam.model';
 import { ComponentExamModel } from '../../../../shared/resources/component-exam.model';
+import { NewExamComponentsManagerComponent } from './new-exam-components-manager/new-exam-components-manager.component';
 
 @Component({
     selector: 'ngx-new-exam',
@@ -36,7 +36,7 @@ export class NewExamComponent implements OnInit {
         // TODO Crear funcionalidad para componentes dinamicos
 
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-            NewExamComponentsTextareaComponent
+            NewExamComponentsManagerComponent
         );
 
         const componentRef = this.dynamicComponent.createComponent(
@@ -57,16 +57,15 @@ export class NewExamComponent implements OnInit {
     }
 
     saveExam() {
-        /*const exam = new ExamModel();
+        const exam = new ExamModel();
         exam.title = this.title;
         exam.components = [];
-        for(const e of this.components) {
+        for (const e of this.components) {
             switch (e.name) {
-                case 'textArea' :
+                case 'textArea':
                     this.saveComponentTextArea(exam, e);
             }
         }
-        console.log('examen', exam);*/
     }
 
     saveComponentTextArea(exam: ExamModel, d: DynamicComponentModel) {
