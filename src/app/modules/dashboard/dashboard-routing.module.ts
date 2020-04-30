@@ -17,8 +17,15 @@ const routes: Routes = [
             {
                 path: 'logout',
                 loadChildren: () =>
-                    import('../logout/logout.module').then(
+                    import('../auth/logout/logout.module').then(
                         (m) => m.LogoutModule
+                    ),
+            },
+            {
+                path: 'exams/new',
+                loadChildren: () =>
+                    import('../exams/new-exam/new-exam.module').then(
+                        (m) => m.NewExamModule
                     ),
             },
             {

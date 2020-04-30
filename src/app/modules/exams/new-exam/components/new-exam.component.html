@@ -1,0 +1,37 @@
+<div class="row" style="height: 100%;">
+    <div class="col-9 new-exam-content">
+        <div class="row">
+            <div class="col-10 offset-1 text-center">
+                <input
+                    type="text"
+                    nbInput
+                    fullWidth
+                    [(ngModel)]="title"
+                    placeholder="Titulo del Examen"
+                />
+            </div>
+        </div>
+
+        <ul class="fullWidth">
+            <ng-template #components></ng-template>
+        </ul>
+
+        <div class="row">
+            <div class="col-12 text-center">
+                <button
+                    nbButton
+                    status="primary"
+                    outline
+                    [disabled]="!title"
+                    (click)="saveExam()"
+                    >Guardar</button
+                >
+            </div>
+        </div>
+    </div>
+    <div class="col-3 new-exam-components-content">
+        <ngx-new-exam-components
+            (resExamComponent)="addComponent($event)"
+        ></ngx-new-exam-components>
+    </div>
+</div>

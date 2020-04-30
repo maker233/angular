@@ -25,14 +25,14 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 // Configuracion del proyecto firebase
 const firebaseConfig = {
-    apiKey: 'AIzaSyDUSIUyr04ld5nqSkXiI3NnX1x8Fi9CTtc',
-    authDomain: 'gestion-practice-a4296.firebaseapp.com',
-    databaseURL: 'https://gestion-practice-a4296.firebaseio.com',
-    projectId: 'gestion-practice-a4296',
-    storageBucket: 'gestion-practice-a4296.appspot.com',
-    messagingSenderId: '861936222658',
-    appId: '1:861936222658:web:f21c7126b68c34fe5e165b',
-    measurementId: 'G-XB9SV1HTY6',
+    apiKey: 'AIzaSyA5EMiBlExS2PBLVxJjmWFu5Ho2-r7t6no',
+    authDomain: 'certificate-be50f.firebaseapp.com',
+    databaseURL: 'https://certificate-be50f.firebaseio.com',
+    projectId: 'certificate-be50f',
+    storageBucket: 'certificate-be50f.appspot.com',
+    messagingSenderId: '252977105098',
+    appId: '1:252977105098:web:58a7ece66dfe4656b2cc33',
+    measurementId: 'G-9RRJ6RM35Z',
 };
 
 @NgModule({

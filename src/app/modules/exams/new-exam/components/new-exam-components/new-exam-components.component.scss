@@ -1,0 +1,11 @@
+ul {
+    padding: 6px;
+    li {
+        border: 1px solid black;
+    }
+
+    li.selected {
+        background-color: #36f;
+        color: white;
+    }
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../shared/auth/services/auth.service';
+import { AuthService } from '../../../../shared/auth/services/auth.service';
 
 @Component({
     selector: 'ngx-login',

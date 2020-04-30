@@ -26,7 +26,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
             },
             {
                 title: 'Nuevo examen',
-                link: '/pages/layout/list',
+                link: '/dashboard/exams/new',
             },
         ],
     },
