@@ -4,12 +4,13 @@ import {
     ComponentFactoryResolver,
     ViewContainerRef,
     OnInit,
+    ChangeDetectorRef,
 } from '@angular/core';
 import { ExamComponentModel } from '../resources/exam-component.model';
 import { DynamicComponentModel } from '../resources/dynamic-component.model';
-import { NewExamComponentsTextareaComponent } from './new-exam-components-textarea/new-exam-components-textarea.component';
 import { ExamModel } from '../../../../shared/resources/exam.model';
 import { ComponentExamModel } from '../../../../shared/resources/component-exam.model';
+import { NewExamComponentsManagerComponent } from './new-exam-components-manager/new-exam-components-manager.component';
 
 @Component({
     selector: 'ngx-new-exam',
@@ -25,7 +26,10 @@ export class NewExamComponent implements OnInit {
     components: DynamicComponentModel[];
     nextId: number;
 
-    constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+    constructor(
+        private componentFactoryResolver: ComponentFactoryResolver,
+        private cd: ChangeDetectorRef
+    ) {}
 
     ngOnInit() {
         this.components = [];
@@ -33,10 +37,8 @@ export class NewExamComponent implements OnInit {
     }
 
     addComponent(component: ExamComponentModel) {
-        // TODO Crear funcionalidad para componentes dinamicos
-
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-            NewExamComponentsTextareaComponent
+            NewExamComponentsManagerComponent
         );
 
         const componentRef = this.dynamicComponent.createComponent(
@@ -54,31 +56,53 @@ export class NewExamComponent implements OnInit {
             this.resComponents(event)
         );
         componentRef.location.nativeElement.setAttribute('class', 'fullWidth');
+        this.cd.detectChanges();
+        componentRef.instance.setComponent(component);
     }
 
     saveExam() {
-        /*const exam = new ExamModel();
+        const exam = new ExamModel();
         exam.title = this.title;
         exam.components = [];
-        for(const e of this.components) {
+        for (const e of this.components) {
             switch (e.name) {
-                case 'textArea' :
+                case 'textArea':
                     this.saveComponentTextArea(exam, e);
             }
         }
-        console.log('examen', exam);*/
     }
 
     saveComponentTextArea(exam: ExamModel, d: DynamicComponentModel) {
-        exam.components.push(
-            new ComponentExamModel(d.id, d.name, d.component.instance.text)
-        );
+        exam.components.push(new ComponentExamModel(d.id, d.name, d.data));
     }
 
     resComponents(event: any) {
         if (event) {
             if (event.destroy) {
                 this.destroyComponent(event.id);
+            } else if (event.save) {
+                this.saveDataComponent(event.id, event.data);
+            } else if (event.modify) {
+                this.modifyComponent(event.id);
+            }
+        }
+    }
+
+    modifyComponent(id: number) {
+        for (const component of this.components) {
+            if (component.id === id) {
+                component.accepted = false;
+                break;
+            }
+        }
+    }
+
+    saveDataComponent(id: number, data: any) {
+        for (const component of this.components) {
+            if (component.id === id) {
+                component.data = data;
+                component.accepted = true;
+                break;
             }
         }
     }
