@@ -1,11 +1,11 @@
 export class ComponentExamModel {
     id: number;
     name: string;
-    text: string;
+    data: any;
 
-    constructor(id: number, name: string, text: string) {
+    constructor(id: number, name: string, data: any) {
         this.id = id;
         this.name = name;
-        this.text = text;
+        this.data = data;
     }
 }

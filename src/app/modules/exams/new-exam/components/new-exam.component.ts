@@ -4,6 +4,7 @@ import {
     ComponentFactoryResolver,
     ViewContainerRef,
     OnInit,
+    ChangeDetectorRef,
 } from '@angular/core';
 import { ExamComponentModel } from '../resources/exam-component.model';
 import { DynamicComponentModel } from '../resources/dynamic-component.model';
@@ -25,7 +26,10 @@ export class NewExamComponent implements OnInit {
     components: DynamicComponentModel[];
     nextId: number;
 
-    constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
+    constructor(
+        private componentFactoryResolver: ComponentFactoryResolver,
+        private cd: ChangeDetectorRef
+    ) {}
 
     ngOnInit() {
         this.components = [];
@@ -33,8 +37,6 @@ export class NewExamComponent implements OnInit {
     }
 
     addComponent(component: ExamComponentModel) {
-        // TODO Crear funcionalidad para componentes dinamicos
-
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
             NewExamComponentsManagerComponent
         );
@@ -54,6 +56,8 @@ export class NewExamComponent implements OnInit {
             this.resComponents(event)
         );
         componentRef.location.nativeElement.setAttribute('class', 'fullWidth');
+        this.cd.detectChanges();
+        componentRef.instance.setComponent(component);
     }
 
     saveExam() {
@@ -69,15 +73,36 @@ export class NewExamComponent implements OnInit {
     }
 
     saveComponentTextArea(exam: ExamModel, d: DynamicComponentModel) {
-        exam.components.push(
-            new ComponentExamModel(d.id, d.name, d.component.instance.text)
-        );
+        exam.components.push(new ComponentExamModel(d.id, d.name, d.data));
     }
 
     resComponents(event: any) {
         if (event) {
             if (event.destroy) {
                 this.destroyComponent(event.id);
+            } else if (event.save) {
+                this.saveDataComponent(event.id, event.data);
+            } else if (event.modify) {
+                this.modifyComponent(event.id);
+            }
+        }
+    }
+
+    modifyComponent(id: number) {
+        for (const component of this.components) {
+            if (component.id === id) {
+                component.accepted = false;
+                break;
+            }
+        }
+    }
+
+    saveDataComponent(id: number, data: any) {
+        for (const component of this.components) {
+            if (component.id === id) {
+                component.data = data;
+                component.accepted = true;
+                break;
             }
         }
     }

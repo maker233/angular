@@ -4,6 +4,7 @@ import {
     ViewChild,
     ViewContainerRef,
     ComponentFactoryResolver,
+    ComponentRef,
 } from '@angular/core';
 import { ExamComponentModel } from '../../resources/exam-component.model';
 import { NewExamComponentsTextareaComponent } from '../new-exam-components-textarea/new-exam-components-textarea.component';
@@ -22,8 +23,10 @@ export class NewExamComponentsManagerComponent {
 
     component: ExamComponentModel;
 
-    @ViewChild('component', { read: ViewContainerRef })
+    @ViewChild('compManager', { read: ViewContainerRef })
     dynamicComponent: ViewContainerRef;
+
+    componentRef: ComponentRef<any>;
 
     constructor(private componentFactoryResolver: ComponentFactoryResolver) {
         this.resComponent = new EventEmitter();
@@ -37,19 +40,14 @@ export class NewExamComponentsManagerComponent {
             this.getClassByComponent(component)
         );
 
-        const componentRef = this.dynamicComponent.createComponent(
+        this.componentRef = this.dynamicComponent.createComponent(
             componentFactory
         );
 
-        componentRef.location.nativeElement.setAttribute('class', 'fullWidth');
-    }
-
-    loadSubscribe(component: ExamComponentModel, componentRef: any) {
-        if (component.component === 'textArea') {
-            (componentRef.instance as NewExamComponentsTextareaComponent).resComponent.subscribe(
-                (event) => this.resComponents(event)
-            );
-        }
+        this.componentRef.location.nativeElement.setAttribute(
+            'class',
+            'fullWidth'
+        );
     }
 
     getClassByComponent(component: ExamComponentModel): any {
@@ -59,14 +57,22 @@ export class NewExamComponentsManagerComponent {
         return null;
     }
 
-    resComponents(event: any) {
-        if (event) {
-            // Prueba
-        }
-    }
-
     save(): void {
         this.aceptado = true;
+        this.componentRef.instance.aceptado = this.aceptado;
+        const data = this.getDynamicData();
+        this.resComponent.emit({ save: true, id: this.id, data });
+    }
+
+    getDynamicData() {
+        if (!this.componentRef) {
+            return;
+        }
+
+        if (this.component.component === 'textArea') {
+            return (this.componentRef
+                .instance as NewExamComponentsTextareaComponent).data;
+        }
     }
 
     remove() {
@@ -75,5 +81,7 @@ export class NewExamComponentsManagerComponent {
 
     modify(): void {
         this.aceptado = false;
+        this.componentRef.instance.aceptado = this.aceptado;
+        this.resComponent.emit({ modify: true, id: this.id });
     }
 }

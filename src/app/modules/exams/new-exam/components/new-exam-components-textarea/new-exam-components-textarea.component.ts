@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'ngx-new-exam-components-textarea',
@@ -7,13 +7,13 @@ import { Component, EventEmitter } from '@angular/core';
 })
 export class NewExamComponentsTextareaComponent {
     text: string;
-    resComponent: EventEmitter<string>;
+    aceptado: boolean;
 
-    constructor() {
-        this.resComponent = new EventEmitter();
+    setAceptado(aceptado: boolean) {
+        this.aceptado = aceptado;
     }
 
-    save(): void {
-        this.resComponent.emit(this.text);
+    get data() {
+        return this.text;
     }
 }
