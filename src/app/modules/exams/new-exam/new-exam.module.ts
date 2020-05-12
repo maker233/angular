@@ -8,6 +8,7 @@ import { NbButtonModule, NbInputModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { NewExamComponentsTextareaComponent } from './components/new-exam-components-textarea/new-exam-components-textarea.component';
 import { NewExamComponentsManagerComponent } from './components/new-exam-components-manager/new-exam-components-manager.component';
+import { NewExamComponentsInputComponent } from './components/new-exam-components-input/new-exam-components-input.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { NewExamComponentsManagerComponent } from './components/new-exam-compone
         NewExamComponentsComponent,
         NewExamComponentsTextareaComponent,
         NewExamComponentsManagerComponent,
+        NewExamComponentsInputComponent,
     ],
     imports: [
         CommonModule,

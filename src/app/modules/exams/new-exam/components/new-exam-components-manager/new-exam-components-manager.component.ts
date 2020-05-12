@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { ExamComponentModel } from '../../resources/exam-component.model';
 import { NewExamComponentsTextareaComponent } from '../new-exam-components-textarea/new-exam-components-textarea.component';
+import { ExamComponentConstants } from '../../resources/exam-component.constants';
+import { NewExamComponentsInputComponent } from '../new-exam-components-input/new-exam-components-input.component';
 
 @Component({
     selector: 'ngx-new-exam-components-manager',
@@ -51,8 +53,11 @@ export class NewExamComponentsManagerComponent {
     }
 
     getClassByComponent(component: ExamComponentModel): any {
-        if (component.component === 'textArea') {
-            return NewExamComponentsTextareaComponent;
+        switch (this.component.component) {
+            case ExamComponentConstants.getComponentTextArea():
+                return NewExamComponentsTextareaComponent;
+            case ExamComponentConstants.getComponentInput():
+                return NewExamComponentsInputComponent;
         }
         return null;
     }
@@ -64,14 +69,18 @@ export class NewExamComponentsManagerComponent {
         this.resComponent.emit({ save: true, id: this.id, data });
     }
 
-    getDynamicData() {
+    getDynamicData(): any {
         if (!this.componentRef) {
             return;
         }
 
-        if (this.component.component === 'textArea') {
-            return (this.componentRef
-                .instance as NewExamComponentsTextareaComponent).data;
+        switch (this.component.component) {
+            case ExamComponentConstants.getComponentTextArea():
+                return (this.componentRef
+                    .instance as NewExamComponentsTextareaComponent).data;
+            case ExamComponentConstants.getComponentInput():
+                return (this.componentRef
+                    .instance as NewExamComponentsInputComponent).data;
         }
     }
 
