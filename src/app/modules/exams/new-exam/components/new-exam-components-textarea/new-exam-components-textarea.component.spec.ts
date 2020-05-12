@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { NbInputModule, NbFocusMonitor } from '@nebular/theme';
 import { NewExamComponent } from '../new-exam.component';
 import { NewExamComponentsComponent } from '../new-exam-components/new-exam-components.component';
+import { NewExamComponentsInputComponent } from '../new-exam-components-input/new-exam-components-input.component';
 
 describe('NewExamComponentsTextareaComponent', () => {
     let component: NewExamComponentsTextareaComponent;
@@ -18,6 +19,7 @@ describe('NewExamComponentsTextareaComponent', () => {
                 NewExamComponent,
                 NewExamComponentsComponent,
                 NewExamComponentsTextareaComponent,
+                NewExamComponentsInputComponent,
             ],
             imports: [
                 CommonModule,

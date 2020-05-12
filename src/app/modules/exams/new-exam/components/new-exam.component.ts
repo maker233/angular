@@ -65,14 +65,12 @@ export class NewExamComponent implements OnInit {
         exam.title = this.title;
         exam.components = [];
         for (const e of this.components) {
-            switch (e.name) {
-                case 'textArea':
-                    this.saveComponentTextArea(exam, e);
-            }
+            this.saveDinamicComponent(exam, e);
         }
+        // console.log('Exam: ', exam);
     }
 
-    saveComponentTextArea(exam: ExamModel, d: DynamicComponentModel) {
+    saveDinamicComponent(exam: ExamModel, d: DynamicComponentModel) {
         exam.components.push(new ComponentExamModel(d.id, d.name, d.data));
     }
 
