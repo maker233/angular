@@ -4,12 +4,18 @@ import { CommonModule } from '@angular/common';
 import { NewExamRoutingModule } from './new-exam-routing.module';
 import { NewExamComponent } from './components/new-exam.component';
 import { NewExamComponentsComponent } from './components/new-exam-components/new-exam-components.component';
-import { NbButtonModule, NbInputModule, NbRadioModule } from '@nebular/theme';
+import {
+    NbButtonModule,
+    NbInputModule,
+    NbRadioModule,
+    NbCheckboxModule,
+} from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { NewExamComponentsTextareaComponent } from './components/new-exam-components-textarea/new-exam-components-textarea.component';
 import { NewExamComponentsManagerComponent } from './components/new-exam-components-manager/new-exam-components-manager.component';
 import { NewExamComponentsInputComponent } from './components/new-exam-components-input/new-exam-components-input.component';
 import { NewExamComponentsRadioComponent } from './components/new-exam-components-radio/new-exam-components-radio.component';
+import { NewExamComponentsCheckComponent } from './components/new-exam-components-check/new-exam-components-check.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +25,7 @@ import { NewExamComponentsRadioComponent } from './components/new-exam-component
         NewExamComponentsManagerComponent,
         NewExamComponentsInputComponent,
         NewExamComponentsRadioComponent,
+        NewExamComponentsCheckComponent,
     ],
     imports: [
         CommonModule,
@@ -27,6 +34,7 @@ import { NewExamComponentsRadioComponent } from './components/new-exam-component
         FormsModule,
         NbInputModule,
         NbRadioModule,
+        NbCheckboxModule,
     ],
     entryComponents: [NewExamComponentsTextareaComponent],
 })

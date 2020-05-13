@@ -11,6 +11,7 @@ import { NewExamComponentsTextareaComponent } from '../new-exam-components-texta
 import { ExamComponentConstants } from '../../resources/constants/exam-component.constants';
 import { NewExamComponentsInputComponent } from '../new-exam-components-input/new-exam-components-input.component';
 import { NewExamComponentsRadioComponent } from '../new-exam-components-radio/new-exam-components-radio.component';
+import { NewExamComponentsCheckComponent } from '../new-exam-components-check/new-exam-components-check.component';
 
 @Component({
     selector: 'ngx-new-exam-components-manager',
@@ -40,7 +41,7 @@ export class NewExamComponentsManagerComponent {
         this.aceptado = false;
 
         const componentFactory = this.componentFactoryResolver.resolveComponentFactory(
-            this.getClassByComponent(component)
+            this.getClassByComponent()
         );
 
         this.componentRef = this.dynamicComponent.createComponent(
@@ -53,7 +54,7 @@ export class NewExamComponentsManagerComponent {
         );
     }
 
-    getClassByComponent(component: ExamComponentModel): any {
+    getClassByComponent(): any {
         switch (this.component.component) {
             case ExamComponentConstants.getComponentTextArea():
                 return NewExamComponentsTextareaComponent;
@@ -61,6 +62,8 @@ export class NewExamComponentsManagerComponent {
                 return NewExamComponentsInputComponent;
             case ExamComponentConstants.getComponentRadio():
                 return NewExamComponentsRadioComponent;
+            case ExamComponentConstants.getComponentCheck():
+                return NewExamComponentsCheckComponent;
         }
         return null;
     }
