@@ -1,0 +1,38 @@
+<p>Añade respuestas y marca la verdadera</p>
+<div class="row">
+    <div class="col-9">
+        <input
+            type="text"
+            nbInput
+            fullWidth
+            [(ngModel)]="text"
+            placeholder="Inserta la respuesta aqui"
+            [disabled]="aceptado"
+        />
+    </div>
+    <div class="col-3">
+        <button
+            class="margin-right"
+            nbButton
+            status="primary"
+            outline
+            [disabled]="aceptado"
+            (click)="addRespuesta()"
+            >Añadir</button
+        >
+    </div>
+</div>
+<div class="row">
+    <div class="col-11">
+        <div class="demo-items">
+            <nb-radio-group
+                [(value)]="radioGroupValue"
+                *ngFor="let item of list"
+            >
+                <nb-radio [value]="item.id" [disabled]="aceptado">
+                    {{ item.text }}
+                </nb-radio>
+            </nb-radio-group>
+        </div>
+    </div>
+</div>

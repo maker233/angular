@@ -6,7 +6,7 @@ import {
     OnInit,
     ChangeDetectorRef,
 } from '@angular/core';
-import { ExamComponentModel } from '../resources/exam-component.model';
+import { ExamComponentModel } from '../resources/models/exam-component.model';
 import { DynamicComponentModel } from '../resources/dynamic-component.model';
 import { ExamModel } from '../../../../shared/resources/exam.model';
 import { ComponentExamModel } from '../../../../shared/resources/component-exam.model';
