@@ -1,4 +1,4 @@
-<p>Añade respuestas y marca la verdadera</p>
+<p>Añade respuestas y marca las respuestas verdadera</p>
 <div class="row">
     <div class="col-9">
         <input
@@ -24,10 +24,12 @@
 </div>
 <div class="row">
     <div class="col-11">
-        <nb-radio-group [(value)]="radioGroupValue" *ngFor="let item of list">
-            <nb-radio [value]="item.id" [disabled]="aceptado">
-                {{ item.text }}
-            </nb-radio>
-        </nb-radio-group>
+        <div class="row" *ngFor="let item of list">
+            <div class="col-12">
+                <nb-checkbox [disabled]="aceptado" [(value)]="item.correcta">{{
+                    item.text
+                }}</nb-checkbox>
+            </div>
+        </div>
     </div>
 </div>
