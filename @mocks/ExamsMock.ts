@@ -1,5 +1,5 @@
-import { ExamComponentModel } from '../src/app/modules/exams/new-exam/resources/exam-component.model';
-import { ExamComponentConstants } from '../src/app/modules/exams/new-exam/resources/exam-component.constants';
+import { ExamComponentModel } from '../src/app/modules/exams/new-exam/resources/models/exam-component.model';
+import { ExamComponentConstants } from '../src/app/modules/exams/new-exam/resources/constants/exam-component.constants';
 
 export class ExamsMock {
     public static getComponents(): ExamComponentModel[] {

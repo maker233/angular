@@ -7,7 +7,8 @@ import { NewExamComponentsTextareaComponent } from '../new-exam-components-texta
 import { CommonModule } from '@angular/common';
 import { NewExamRoutingModule } from '../../new-exam-routing.module';
 import { FormsModule } from '@angular/forms';
-import { NbInputModule, NbFocusMonitor } from '@nebular/theme';
+import { NbInputModule, NbFocusMonitor, NbRadioModule } from '@nebular/theme';
+import { NewExamComponentsRadioComponent } from '../new-exam-components-radio/new-exam-components-radio.component';
 
 describe('NewExamComponentsInputComponent', () => {
     let component: NewExamComponentsInputComponent;
@@ -20,12 +21,14 @@ describe('NewExamComponentsInputComponent', () => {
                 NewExamComponentsComponent,
                 NewExamComponentsTextareaComponent,
                 NewExamComponentsInputComponent,
+                NewExamComponentsRadioComponent,
             ],
             imports: [
                 CommonModule,
                 NewExamRoutingModule,
                 FormsModule,
                 NbInputModule,
+                NbRadioModule,
             ],
             providers: [NbFocusMonitor],
         }).compileComponents();

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ExamComponentModel } from '../../resources/exam-component.model';
+import { ExamComponentModel } from '../../resources/models/exam-component.model';
 import { ExamsMock } from '../../../../../../../@mocks/ExamsMock';
 
 @Component({
