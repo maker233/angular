@@ -9,6 +9,9 @@ import {
     NbInputModule,
     NbRadioModule,
     NbCheckboxModule,
+    NbDialogModule,
+    NbCardModule,
+    NbSelectModule,
 } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
 import { NewExamComponentsTextareaComponent } from './components/new-exam-components-textarea/new-exam-components-textarea.component';
@@ -16,6 +19,7 @@ import { NewExamComponentsManagerComponent } from './components/new-exam-compone
 import { NewExamComponentsInputComponent } from './components/new-exam-components-input/new-exam-components-input.component';
 import { NewExamComponentsRadioComponent } from './components/new-exam-components-radio/new-exam-components-radio.component';
 import { NewExamComponentsCheckComponent } from './components/new-exam-components-check/new-exam-components-check.component';
+import { NewExamDialogComponent } from './components/new-exam-dialog/new-exam-dialog.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +30,7 @@ import { NewExamComponentsCheckComponent } from './components/new-exam-component
         NewExamComponentsInputComponent,
         NewExamComponentsRadioComponent,
         NewExamComponentsCheckComponent,
+        NewExamDialogComponent,
     ],
     imports: [
         CommonModule,
@@ -35,6 +40,9 @@ import { NewExamComponentsCheckComponent } from './components/new-exam-component
         NbInputModule,
         NbRadioModule,
         NbCheckboxModule,
+        NbDialogModule,
+        NbCardModule,
+        NbSelectModule,
     ],
     entryComponents: [NewExamComponentsTextareaComponent],
 })
