@@ -11,6 +11,8 @@ import { DynamicComponentModel } from '../resources/dynamic-component.model';
 import { ExamModel } from '../../../../shared/resources/exam.model';
 import { ComponentExamModel } from '../../../../shared/resources/component-exam.model';
 import { NewExamComponentsManagerComponent } from './new-exam-components-manager/new-exam-components-manager.component';
+import { NbDialogService } from '@nebular/theme';
+import { NewExamDialogComponent } from './new-exam-dialog/new-exam-dialog.component';
 
 @Component({
     selector: 'ngx-new-exam',
@@ -25,10 +27,12 @@ export class NewExamComponent implements OnInit {
 
     components: DynamicComponentModel[];
     nextId: number;
+    titulacion: any;
 
     constructor(
         private componentFactoryResolver: ComponentFactoryResolver,
-        private cd: ChangeDetectorRef
+        private cd: ChangeDetectorRef,
+        private dialogService: NbDialogService
     ) {}
 
     ngOnInit() {
@@ -61,12 +65,15 @@ export class NewExamComponent implements OnInit {
     }
 
     saveExam() {
-        const exam = new ExamModel();
+        this.dialogService
+            .open(NewExamDialogComponent)
+            .onClose.subscribe((titulacion) => (this.titulacion = titulacion));
+        /*const exam = new ExamModel();
         exam.title = this.title;
         exam.components = [];
         for (const e of this.components) {
             this.saveDinamicComponent(exam, e);
-        }
+        }*/
         // console.log('Exam: ', exam);
     }
 

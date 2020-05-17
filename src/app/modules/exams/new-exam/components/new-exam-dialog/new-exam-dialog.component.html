@@ -1,0 +1,41 @@
+<nb-card>
+    <nb-card-header>Elije el tipo de examen que quieres guardar</nb-card-header>
+    <nb-card-body>
+        <div class="row select">
+            <nb-select
+                fullWidth
+                placeholder="Selecciona el titulo"
+                [(selected)]="selectedTitu"
+            >
+                <nb-option value="1">Trinity</nb-option>
+                <nb-option value="2">Cambridge</nb-option>
+                <nb-option value="3">Otro mas</nb-option>
+            </nb-select>
+        </div>
+        <div class="row select">
+            <nb-select
+                fullWidth
+                [disabled]="!selectedTitu"
+                placeholder="Selecciona el nivel"
+                [(selected)]="selectedNivel"
+            >
+                <nb-option value="0">A2</nb-option>
+                <nb-option value="1">B1</nb-option>
+                <nb-option value="2">B2</nb-option>
+                <nb-option value="3">C1</nb-option>
+            </nb-select>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="cancel" nbButton status="danger" (click)="cancel()"
+            >Cancelar</button
+        >
+        <button
+            nbButton
+            [disabled]="!selectedTitu || !selectedNivel"
+            status="success"
+            (click)="aceptar()"
+            >Guardar</button
+        >
+    </nb-card-footer>
+</nb-card>
