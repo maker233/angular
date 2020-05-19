@@ -17,8 +17,9 @@ export class NewExamDialogComponent {
     }
 
     aceptar() {
-        const tituNumber = parseInt(this.selectedTitu, 10);
-        const nivelNumber = parseInt(this.selectedNivel, 10);
-        this.ref.close({ titulo: tituNumber, nivel: nivelNumber });
+        this.ref.close({
+            titulo: this.selectedTitu,
+            nivel: this.selectedNivel,
+        });
     }
 }

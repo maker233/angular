@@ -13,6 +13,9 @@ import { ComponentExamModel } from '../../../../shared/resources/component-exam.
 import { NewExamComponentsManagerComponent } from './new-exam-components-manager/new-exam-components-manager.component';
 import { NbDialogService } from '@nebular/theme';
 import { NewExamDialogComponent } from './new-exam-dialog/new-exam-dialog.component';
+import { EncrDecrService } from '../../../../shared/services/encr-decr.service';
+import { ExamBBDDModel } from '../../../../shared/resources/exam-bbdd.model';
+import { ExamsService } from '../../../../shared/services/exams.service';
 
 @Component({
     selector: 'ngx-new-exam',
@@ -29,10 +32,14 @@ export class NewExamComponent implements OnInit {
     nextId: number;
     titulacion: any;
 
+    working: boolean;
+
     constructor(
         private componentFactoryResolver: ComponentFactoryResolver,
         private cd: ChangeDetectorRef,
-        private dialogService: NbDialogService
+        private dialogService: NbDialogService,
+        private encrDecr: EncrDecrService,
+        private examsService: ExamsService
     ) {}
 
     ngOnInit() {
@@ -64,17 +71,34 @@ export class NewExamComponent implements OnInit {
         componentRef.instance.setComponent(component);
     }
 
-    saveExam() {
+    confirmExam() {
         this.dialogService
             .open(NewExamDialogComponent)
-            .onClose.subscribe((titulacion) => (this.titulacion = titulacion));
-        /*const exam = new ExamModel();
+            .onClose.subscribe((res) => this.saveExam(res.titulo, res.nivel));
+    }
+
+    saveExam(titulacion: string, nivel: string) {
+        this.working = true;
+        const exam = new ExamModel();
         exam.title = this.title;
+        exam.degree = titulacion;
+        exam.level = nivel;
         exam.components = [];
         for (const e of this.components) {
             this.saveDinamicComponent(exam, e);
-        }*/
-        // console.log('Exam: ', exam);
+        }
+        const exambbddModel = new ExamBBDDModel(exam, this.encrDecr);
+        this.examsService
+            .createExam(exambbddModel)
+            .then(() => console.error('Guardado correctamente.'))
+            .catch((err) => console.error(err))
+            .finally(() => (this.working = false));
+
+        /*const decrypted = this.encrDecr.get(PracticeAppConstants.getSecretKey(), encrypted);
+        console.log('Encrypted :' + encrypted);
+        console.log('Decrypted :' + decrypted);
+        const mijson: ComponentExamModel[] = JSON.parse(decrypted);
+        console.log('json', mijson);*/
     }
 
     saveDinamicComponent(exam: ExamModel, d: DynamicComponentModel) {
