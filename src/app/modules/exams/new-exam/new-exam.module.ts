@@ -20,6 +20,7 @@ import { NewExamComponentsInputComponent } from './components/new-exam-component
 import { NewExamComponentsRadioComponent } from './components/new-exam-components-radio/new-exam-components-radio.component';
 import { NewExamComponentsCheckComponent } from './components/new-exam-components-check/new-exam-components-check.component';
 import { NewExamDialogComponent } from './components/new-exam-dialog/new-exam-dialog.component';
+import { EncrDecrService } from '../../../shared/services/encr-decr.service';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { NewExamDialogComponent } from './components/new-exam-dialog/new-exam-di
         NbCardModule,
         NbSelectModule,
     ],
+    providers: [EncrDecrService],
     entryComponents: [NewExamComponentsTextareaComponent],
 })
 export class NewExamModule {}
