@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 
+@Injectable()
 export class EncrDecrService {
     set(keys, value) {
         const key = CryptoJS.enc.Utf8.parse(keys);

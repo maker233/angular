@@ -22,7 +22,7 @@
                     nbButton
                     status="primary"
                     outline
-                    [disabled]="!title"
+                    [disabled]="!title || working"
                     (click)="confirmExam()"
                     >Guardar</button
                 >
