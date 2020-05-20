@@ -22,6 +22,7 @@ import {
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ExamsService } from './shared/services/exams.service';
 
 // Configuracion del proyecto firebase
 const firebaseConfig = {
@@ -57,6 +58,7 @@ const firebaseConfig = {
         AngularFirestoreModule,
         AngularFireAuthModule,
     ],
+    providers: [ExamsService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

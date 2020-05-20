@@ -16,7 +16,7 @@
             nbButton
             status="primary"
             outline
-            [disabled]="aceptado"
+            [disabled]="aceptado || !text"
             (click)="addRespuesta()"
             >Añadir</button
         >
