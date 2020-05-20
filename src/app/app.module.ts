@@ -22,17 +22,18 @@ import {
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ExamsService } from './shared/services/exams.service';
 
 // Configuracion del proyecto firebase
 const firebaseConfig = {
-    apiKey: 'AIzaSyA5EMiBlExS2PBLVxJjmWFu5Ho2-r7t6no',
-    authDomain: 'certificate-be50f.firebaseapp.com',
-    databaseURL: 'https://certificate-be50f.firebaseio.com',
-    projectId: 'certificate-be50f',
-    storageBucket: 'certificate-be50f.appspot.com',
-    messagingSenderId: '252977105098',
-    appId: '1:252977105098:web:58a7ece66dfe4656b2cc33',
-    measurementId: 'G-9RRJ6RM35Z',
+    apiKey: 'AIzaSyDUSIUyr04ld5nqSkXiI3NnX1x8Fi9CTtc',
+    authDomain: 'gestion-practice-a4296.firebaseapp.com',
+    databaseURL: 'https://gestion-practice-a4296.firebaseio.com',
+    projectId: 'gestion-practice-a4296',
+    storageBucket: 'gestion-practice-a4296.appspot.com',
+    messagingSenderId: '861936222658',
+    appId: '1:861936222658:web:f21c7126b68c34fe5e165b',
+    measurementId: 'G-XB9SV1HTY6',
 };
 
 @NgModule({
@@ -57,6 +58,7 @@ const firebaseConfig = {
         AngularFirestoreModule,
         AngularFireAuthModule,
     ],
+    providers: [ExamsService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,35 @@
+<p>Añade respuestas y marca las respuestas verdadera</p>
+<div class="row">
+    <div class="col-9">
+        <input
+            type="text"
+            nbInput
+            fullWidth
+            [(ngModel)]="text"
+            placeholder="Inserta la respuesta aqui"
+            [disabled]="aceptado"
+        />
+    </div>
+    <div class="col-3">
+        <button
+            class="margin-right"
+            nbButton
+            status="primary"
+            outline
+            [disabled]="aceptado || !text"
+            (click)="addRespuesta()"
+            >Añadir</button
+        >
+    </div>
+</div>
+<div class="row">
+    <div class="col-11">
+        <div class="row" *ngFor="let item of list">
+            <div class="col-12">
+                <nb-checkbox [disabled]="aceptado" [(value)]="item.correcta">{{
+                    item.text
+                }}</nb-checkbox>
+            </div>
+        </div>
+    </div>
+</div>

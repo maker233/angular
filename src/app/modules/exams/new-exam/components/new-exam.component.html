@@ -22,8 +22,8 @@
                     nbButton
                     status="primary"
                     outline
-                    [disabled]="!title"
-                    (click)="saveExam()"
+                    [disabled]="!title || working"
+                    (click)="confirmExam()"
                     >Guardar</button
                 >
             </div>

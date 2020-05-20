@@ -1,0 +1,41 @@
+<nb-card>
+    <nb-card-header>Elije el tipo de examen que quieres guardar</nb-card-header>
+    <nb-card-body>
+        <div class="row select">
+            <nb-select
+                fullWidth
+                placeholder="Selecciona el titulo"
+                [(selected)]="selectedTitu"
+                (selectedChange)="tituloSeleccionado()"
+            >
+                <nb-option *ngFor="let titu of titulaciones" [value]="titu">{{
+                    titu.nombre
+                }}</nb-option>
+            </nb-select>
+        </div>
+        <div class="row select">
+            <nb-select
+                fullWidth
+                [disabled]="!selectedTitu"
+                placeholder="Selecciona el nivel"
+                [(selected)]="selectedNivel"
+            >
+                <nb-option *ngFor="let level of niveles" [value]="level">{{
+                    level.nombre
+                }}</nb-option>
+            </nb-select>
+        </div>
+    </nb-card-body>
+    <nb-card-footer>
+        <button class="cancel" nbButton status="danger" (click)="cancel()"
+            >Cancelar</button
+        >
+        <button
+            nbButton
+            [disabled]="!selectedTitu || !selectedNivel"
+            status="success"
+            (click)="aceptar()"
+            >Guardar</button
+        >
+    </nb-card-footer>
+</nb-card>
