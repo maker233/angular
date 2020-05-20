@@ -6,10 +6,11 @@
                 fullWidth
                 placeholder="Selecciona el titulo"
                 [(selected)]="selectedTitu"
+                (selectedChange)="tituloSeleccionado()"
             >
-                <nb-option value="1">Trinity</nb-option>
-                <nb-option value="2">Cambridge</nb-option>
-                <nb-option value="3">Otro mas</nb-option>
+                <nb-option *ngFor="let titu of titulaciones" [value]="titu">{{
+                    titu.nombre
+                }}</nb-option>
             </nb-select>
         </div>
         <div class="row select">
@@ -19,10 +20,9 @@
                 placeholder="Selecciona el nivel"
                 [(selected)]="selectedNivel"
             >
-                <nb-option value="0">A2</nb-option>
-                <nb-option value="1">B1</nb-option>
-                <nb-option value="2">B2</nb-option>
-                <nb-option value="3">C1</nb-option>
+                <nb-option *ngFor="let level of niveles" [value]="level">{{
+                    level.nombre
+                }}</nb-option>
             </nb-select>
         </div>
     </nb-card-body>
