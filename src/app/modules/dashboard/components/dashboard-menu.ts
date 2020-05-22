@@ -22,7 +22,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         children: [
             {
                 title: 'Listado examenes',
-                link: '/pages/layout/stepper',
+                link: '/dashboard/exams/list',
             },
             {
                 title: 'Nuevo examen',

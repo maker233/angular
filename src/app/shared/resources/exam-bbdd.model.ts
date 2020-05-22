@@ -3,6 +3,7 @@ import { EncrDecrService } from '../services/encr-decr.service';
 import { PracticeAppConstants } from '../constants/practice-app.constants';
 
 export class ExamBBDDModel {
+    id: string;
     degree: string;
     level: string;
     title: string;

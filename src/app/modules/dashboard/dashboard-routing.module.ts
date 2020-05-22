@@ -29,6 +29,13 @@ const routes: Routes = [
                     ),
             },
             {
+                path: 'exams/list',
+                loadChildren: () =>
+                    import('../exams/list-exam/list-exam.module').then(
+                        (m) => m.ListExamModule
+                    ),
+            },
+            {
                 path: '',
                 redirectTo: 'home',
                 pathMatch: 'full',
