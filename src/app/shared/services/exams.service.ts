@@ -34,4 +34,12 @@ export class ExamsService {
             .collection<NivelesBBDDModel>('niveles')
             .valueChanges({ idField: 'id' });
     }
+
+    list(): Observable<ExamBBDDModel[]> {
+        return this.examRef.valueChanges({ idField: 'id' });
+    }
+
+    remove(id: string): Promise<any> {
+        return this.examRef.doc(id).delete();
+    }
 }

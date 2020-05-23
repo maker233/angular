@@ -16,6 +16,7 @@ import { NewExamDialogComponent } from './new-exam-dialog/new-exam-dialog.compon
 import { EncrDecrService } from '../../../../shared/services/encr-decr.service';
 import { ExamBBDDModel } from '../../../../shared/resources/exam-bbdd.model';
 import { ExamsService } from '../../../../shared/services/exams.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'ngx-new-exam',
@@ -39,7 +40,8 @@ export class NewExamComponent implements OnInit {
         private cd: ChangeDetectorRef,
         private dialogService: NbDialogService,
         private encrDecr: EncrDecrService,
-        private examsService: ExamsService
+        private examsService: ExamsService,
+        private router: Router
     ) {}
 
     ngOnInit() {
@@ -90,7 +92,7 @@ export class NewExamComponent implements OnInit {
         const exambbddModel = new ExamBBDDModel(exam, this.encrDecr);
         this.examsService
             .createExam(exambbddModel)
-            .then(() => console.error('Guardado correctamente.'))
+            .then(() => this.router.navigate(['/dashboard/exams/list']))
             .catch((err) => console.error(err))
             .finally(() => (this.working = false));
 
