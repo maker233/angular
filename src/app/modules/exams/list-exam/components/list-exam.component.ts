@@ -106,10 +106,13 @@ export class ListExamComponent implements OnInit {
     }
 
     onDeleteConfirm(event): void {
-        if (window.confirm('¿Quieres eliminarlo?')) {
-            event.confirm.resolve();
-        } else {
-            event.confirm.reject();
+        if (event.data && event.data.id) {
+            if (window.confirm('¿Quieres eliminarlo?')) {
+                this.examsService.remove(event.data.id);
+                event.confirm.resolve();
+            } else {
+                event.confirm.reject();
+            }
         }
     }
 

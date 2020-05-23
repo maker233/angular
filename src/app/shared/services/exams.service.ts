@@ -38,4 +38,8 @@ export class ExamsService {
     list(): Observable<ExamBBDDModel[]> {
         return this.examRef.valueChanges({ idField: 'id' });
     }
+
+    remove(id: string): Promise<any> {
+        return this.examRef.doc(id).delete();
+    }
 }
