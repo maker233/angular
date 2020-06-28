@@ -15,6 +15,11 @@ const routes: Routes = [
                     import('../home/home.module').then((m) => m.HomeModule),
             },
             {
+                path: 'admin',
+                loadChildren: () =>
+                    import('../admin/admin.module').then((m) => m.AdminModule),
+            },
+            {
                 path: 'logout',
                 loadChildren: () =>
                     import('../auth/logout/logout.module').then(

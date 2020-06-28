@@ -28,7 +28,8 @@ export class ListExamComponent implements OnInit {
     constructor(private examsService: ExamsService) {}
 
     ngOnInit(): void {
-        this.working = true;
+        // this.working = true;
+        this.working = false;
         this.jobs = 0;
         this.loadExams();
         this.loadTitulaciones();
